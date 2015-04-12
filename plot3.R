@@ -9,6 +9,7 @@ DF$DateTime <- strptime(DF$DateTime, format="%d/%m/%Y %H:%M:%S")
 DF <- subset(DF, Date=="2007-02-02"|Date=="2007-02-01")
 
 # Plot 3 #
+png(file="plot3.png", width=480, height=480)
 plot(DF$DateTime,DF$Sub_metering_1,type="l",xlab="", ylab="Energy sub metering")
 with(DF,lines(DateTime,Sub_metering_2,col="red"))
 with(DF,lines(DateTime,Sub_metering_3,col="blue"))
@@ -18,3 +19,7 @@ legend(x = "topright",
        col=c("black","red","blue"),
        c("Sub_metering_1","Sub_metering_2","Sub_metering_3")
 )
+
+# Saving Plot 3 as a png #
+
+dev.off()
